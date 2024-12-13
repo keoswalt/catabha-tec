@@ -23,6 +23,7 @@ navLink.forEach(link => {
     });
 });
 
+
 // Current Year
 
 const yearOnPage = document.getElementById("currentYear")
