@@ -1,0 +1,488 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+/* Base Styles */
+
+body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    color: var(--color-black-100);
+    background: var(--color-white-100);
+  }
+  
+  .container {
+    --max-width: 1200px;
+    --padding: 6rem;
+  
+    width: min(var(--max-width), 100% - var(--padding));
+    margin-inline: auto;
+  }
+  
+  @media (max-width: 50em) {
+    .container {
+      width: 90%;
+    }
+  }
+
+  a {
+    all: unset;
+  }
+  
+  
+  :root {
+    /* Colors */
+    --color-primary-100: #08222A;
+    --color-white-100: #F5F5F5;
+    --color-black-100: #1E1D1D;
+
+  
+    /* Fonts */
+    --ff-primary: "Funnel Sans", sans-serif;
+    --ff-secondary: "Funnel Display", sans-serif;
+    --ff-body: var(--ff-primary);
+    --ff-accent: var(--ff-secondary);
+  
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+  
+    --fs-200: 0.875rem;
+    --fs-300: 1rem;
+    --fs-400: 1.125rem;
+    --fs-500: 1.5rem;
+    --fs-550: 2rem;
+    --fs-600: 2.25rem;
+    --fs-700: 3rem;
+    --fs-800: 5rem;
+    --fs-900: 7.5rem;
+  
+    --fs-body: var(--fs-400);
+    --fs-body-h2: var(--fs-600);
+    --fs-body-h3: var(--fs-500);
+    --fs-primary-heading: var(--fs-800);
+    --fs-secondary-heading: var(--fs-700);
+    --fs-primary-subheading: var(--fs-500);
+    --fs-secondary-subheading: var(--fs-200);
+    --fs-button: var(--fs-300);
+    --fs-date: var(--fs-300);
+    --fs-nav: var(--fs-400);
+    --fs-site-title: var(--fs-900);
+    --fs-page-title: var(--fs-800);
+  }
+
+  .visually-hidden {
+    display: none;
+  }
+
+  /* Typography */
+
+  p {
+    font-size: var(--ff-body);
+    line-height: 140%;
+    font-weight: var(--fw-regular);
+  }
+
+  .page-title {
+    font-size: var(--fs-primary-heading);
+    line-height: 100%;
+    font-weight: var(--fw-medium);
+  }
+
+  .subhead {
+    font-size: var(--fs-primary-subheading);
+    line-height: 120%;
+  }
+
+  .section-heading {
+    font-size: var(--fs-secondary-heading);
+  }
+
+  .text-small {
+    font-size: var(--fs-300);
+  }
+
+  .text-link {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 50em) {
+    .page-title {
+        font-size: var(--fs-700);
+    }
+
+    .subhead {
+        font-size: var(--fs-400);
+    }
+
+    .section-heading {
+        font-size: var(--fs-600);
+    }
+  }
+
+  /* Graphics */
+
+  .icon-s {
+    width: 16px;
+  }
+
+  .icon-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+  }
+
+
+  /* Element Styles */
+
+/* Nav */
+
+header {
+    background-color: var(--color-primary-100);
+    color: var(--color-white-100);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link:hover, .nav-logo:hover {
+    text-decoration: underline;
+}
+
+.mobile-nav-toggle {
+    display: none;
+  }
+
+  .icon-hamburger, .icon-close {
+    width: 16px;
+  }
+
+  @media (max-width: 50em) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      inset: 3rem 1rem auto;
+      background-color: var(--color-white-100);
+      color: var(--color-black-100);
+      border-radius: 5px;
+    }
+  
+    .nav-links[data-visible] {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+      padding: 1rem;
+    }
+  
+    .mobile-nav-toggle {
+      display: contents;
+    }
+  
+    .mobile-nav-toggle {
+      display: block;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+    }
+  
+    .icon-close {
+      display: none;
+    }
+  
+    .icon-hamburger[data-invisible] {
+      display: none;
+    }
+  
+    .icon-close[data-visible] {
+      display: block;
+    }
+  }
+
+/* Hero */
+
+#hero {
+    background-color: var(--color-primary-100);
+    color: var(--color-white-100);
+}
+
+.hero-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 8rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 50em) {
+    .hero-contents {
+        padding-block: 4rem;
+    }
+
+    .hero-text {
+        gap: 1rem;
+    }
+}
+
+/* Services */
+
+#services {
+    padding-block: 5rem;
+    padding-inline: 8rem;
+}
+
+.services-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 70ch;
+}
+
+.services-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 1rem;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: first baseline;
+}
+
+.service-item h3 {
+    font-size: var(--fs-body-h3);
+}
+
+.service-item img {
+    width: 18px;
+}
+
+@media (max-width: 50em) {
+    #services {
+        padding-inline: 0;
+        padding-block: 2rem;
+    }
+
+    .services-contents {
+        gap: 2rem;
+    }
+
+    .services-intro {
+        gap: .5rem;
+    }
+
+    .service-list {
+        gap: 1rem;
+        padding-left: 0;
+    }
+}
+
+/* Clients */
+
+#clients {
+    padding-block: 2rem;
+    padding-inline: 2rem;
+}
+
+.client-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.client-logo {
+    max-width: 15%;
+}
+
+/* About */
+
+#about {
+    padding-block: 4rem;
+    padding-inline: 2rem;
+    background-color: var(--color-primary-100);
+    color: var(--color-white-100);
+}
+
+.about-contents {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 70ch;
+}
+
+.about-photo {
+    width: 40%;
+    /* border: solid 3px var(--color-white-100); */
+}
+
+.about-photo img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.about-contents .icon-link {
+    padding-top: 1rem;
+}
+
+@media (max-width: 50em) {
+    #about {
+        padding-inline: 0;
+        padding-block: 3rem;
+    }
+
+    .about-contents {
+        flex-direction: column;
+    }
+
+    .about-text {
+        gap: .5rem;
+    }
+
+    .about-photo {
+        width: 100%;
+    }
+}
+
+
+/* Contact */
+
+#contact {
+    padding-block: 6rem;
+}
+
+.contact-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contact-contents h2, .contact-contents p {
+    max-width: 70ch;
+    text-align: center;
+}
+
+@media (max-width: 50em) {
+    #contact {
+        padding-block: 3rem;
+    }
+}
+
+/* Footer */
+
+footer {
+    padding-block: 1rem;
+}
+
+.footer-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
