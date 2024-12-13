@@ -151,11 +151,13 @@ body {
     font-size: var(--fs-primary-heading);
     line-height: 100%;
     font-weight: var(--fw-medium);
+    text-align: center;
   }
 
   .subhead {
     font-size: var(--fs-primary-subheading);
     line-height: 120%;
+    text-align: center;
   }
 
   .section-heading {
