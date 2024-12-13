@@ -22,3 +22,12 @@ navLink.forEach(link => {
         navToggle.setAttribute("aria-expanded", !expanded);
     });
 });
+
+// Current Year
+
+const yearOnPage = document.getElementById("currentYear")
+
+const d = new Date();
+let year = d.getFullYear();
+
+yearOnPage.innerText = year;
