@@ -95,10 +95,10 @@ body {
   
   :root {
     /* Colors */
-    --color-primary-100: #08222A;
-    --color-primary-50: #105B71;
-    --color-primary-10: #B4EEFF;
-    --color-white-100: #F5F5F5;
+    --color-primary-100: #61025D;
+    --color-primary-50: #A04F9D;
+    --color-primary-10: #D7B3D5;
+    --color-white-100: #FFFFFF;
     --color-black-100: #1E1D1D;
 
   
@@ -254,8 +254,18 @@ header {
     gap: 1rem;
 }
 
-.nav-link:hover, .nav-logo:hover {
+.nav-link:hover {
     text-decoration: underline;
+}
+
+.site-title {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.site-logo {
+  width: 24px;
 }
 
 .mobile-nav-toggle {
