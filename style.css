@@ -327,9 +327,15 @@ header {
 
 .hero-contents {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-block: 8rem;
+    gap: 2rem;
+    padding-block: 4rem;
+}
+
+.hero-image {
+  width: 15%;
 }
 
 .hero-text {
@@ -343,6 +349,10 @@ header {
 @media (max-width: 50em) {
     .hero-contents {
         padding-block: 4rem;
+    }
+
+    .hero-image {
+      width: 30%;
     }
 
     .hero-text {
